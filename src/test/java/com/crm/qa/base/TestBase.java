@@ -32,18 +32,18 @@ public class TestBase {
 	public static void initiliazition() {
 	String browserName	= prop.getProperty("browser");
 	if(browserName.equals("chrome")) {
-	      System.setProperty("webdriver.chrome.driver" ,"/Users/nejlagulsaglam/Documents/selenium dependencies/drivers" );
+	      System.setProperty("webdriver.chrome.driver" ,"/Users/nejlagulsaglam/Documents/selenium dependencies/drivers/chromedriver" );
 	driver = new ChromeDriver();
 	
 	}else if (browserName.equals("FF")) {
-		System.setProperty("webdriver.gecko.driver", "/Users/nejlagulsaglam/Documents/selenium dependencies/drivers");
+		System.setProperty("webdriver.gecko.driver", "/Users/nejlagulsaglam/Documents/selenium dependencies/drivers/geckodriver");
 		driver = new FirefoxDriver();
 	}
 	driver.manage().window().fullscreen();
 	driver.manage().deleteAllCookies();
 	driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
 	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-	driver.manage().deleteAllCookies();
+	driver.get(prop.getProperty("url"));
 	
 	
 }
